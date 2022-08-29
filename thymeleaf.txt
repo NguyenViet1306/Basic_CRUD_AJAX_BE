@@ -1,0 +1,4 @@
+thymeleaf là 1 thưu viện dự án, là 1 thưu viện nằm trong Sprign
+
+đẩy thư viện vào gradle
+

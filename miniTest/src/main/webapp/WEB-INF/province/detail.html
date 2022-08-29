@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <h1>Province detail</h1>
+    <table class="table table-striped" th:object="${province}" >
+        <tr>
+            <th>Number</th>
+            <th>Name Province</th>
+            <th>Popular</th>
+            <th>GDP</th>
+            <th>Image</th>
+            <th>Country</th>
+            <th id="action" colspan="2">Action</th>
+        </tr>
+        <tr>
+            <td th:text="${province.getId()}"></td>
+            <td th:text="${province.getName()}"></td>
+            <td th:text="${province.getPopular()}"></td>
+            <td th:text="${province.getGdp()}"></td>
+            <td><img width="100px" th:src="@{'../image/'+ ${province.getImageUrl()}}" alt="Fail"></td>
+            <td th:text="${province.getCountry().getName()}"></td>
+            <td>
+                <button class="btn btn-warning">
+                    <a th:href="@{/province/detail/update/{id}(id=${province.getId()})}">Update</a>
+                </button>
+             </td>
+            <td>
+                <button class="btn btn-danger">
+                    <a th:href="@{/province/detail/delete/{id}(id=${province.getId()})}">Delete</a>
+                </button>
+            </td>
+        </tr>
+    </table>
+    <button class="btn btn-primary"><a href="/province">Back to home</a></button>
+</div>
+</body>
+</html>

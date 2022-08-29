@@ -1,0 +1,15 @@
+Web Service
+	+ là các thành phần ứng dụng đc hiển thị dưới dạng các dv trên WWW.
+	+ Dịch vụ: 
+		+ là 1 thành phần phần mềm
+		+ chứ logic nghiệp vụ bên trong đó
+		+ hiển thị trnee Web cho nhiều Client	
+		+ truy cập bởi các client tại các vị trí khác nhau
+
+	- Web Service có thể sd tích hợp đc các ứng dụng viết bằng các ngôn ngữ khác nhau và chạy trên các nền tảng khác nhau
+
+	- Xây dựng các chuẩn mở và sd các giao thức mở để giao tiếp.
+
+	- Web service hđ như 1 service trong mô hình ứng dụng client service sd giao thức Http/Https và chỉ thực hiện 1 tác vụ cụ thể
+
+	- vs dữ liệu đầu vào xác định, web service xử lý và trả ra dữ liệu theo chuẩn đảm bảo của mọi ứng dụng hiểu đc m

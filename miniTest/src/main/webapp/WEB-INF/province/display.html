@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <h1>List Province</h1>
+    <h2 th:if="${mess} != null" th:text="${mess}"></h2>
+        <div class="row">
+            <div class="col-6">
+                <button class="btn btn-primary"><a th:href="@{/province/create}"> Create Province </a></button>
+            </div>
+        </div>
+        <div id="search" class="col-6">
+            <form th:action="@{/province/search}" method="post">
+                <label><input type="text" name="search" th:value="${search}"></label>
+                <button class="btn btn-primary" type="submit">Search</button>
+            </form>
+        </div>
+    <table class="table table-striped btn-td" >
+        <tr>
+            <th>Number</th>
+            <th>Name Province</th>
+            <th>Popular</th>
+            <th>GDP</th>
+            <th>Image</th>
+            <th>Country</th>
+            <th id="action">ACTION</th>
+        </tr>
+        <tr th:each="p,status: ${provinces}">
+            <td th:text="${status.count}"></td>
+            <td th:text="${p.getName()}"></td>
+            <td th:text="${p.getPopular()}"></td>
+            <td th:text="${p.getGdp()}"></td>
+            <td><img width="100px" th:src="@{'../image/'+ ${p.getImageUrl()}}" alt="Fail"></td>
+            <td th:text="${p.getCountry().getName()}" th:href="/province/detila"></td>  <td >
+                <button class="btn btn-info">
+                    <a th:href="@{/province/detail/{id}(id=${p.getId()})}">Detail</a>
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="table-striped">
+    <a style="color: black" th:if="${provinces.hasPrevious()}" th:href="@{'/province'(page=${provinces.number - 1})}">Previous</a>
+    <span style="color: black" th:text="${provinces.number + 1}"></span>/<span style="color: black" th:text="${provinces.totalPages}"></span>
+    <a style="color: black" th:if="${provinces.hasNext()}" th:href="@{'/province'(page=${provinces.number + 1})}">Next</a>
+
+</div>
+</body>
+</html>

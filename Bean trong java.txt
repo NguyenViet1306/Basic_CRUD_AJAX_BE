@@ -1,0 +1,52 @@
+-- Bean :
+	+ Là các đối tượng tạo thành xương sống của ứng dụng
+	  đc quản lý bởi Spring IoC container.
+	+ 1 Bean là 1 dối tượng đc khởi tạo, lắp ráp và quản lý
+	  bởi 1 Spring IoC container
+
+
+-- Tất cả các siêu dữ liệu cấu hình chuyển thành 1 tập các thuộc
+   tính sau đc sử dụng để định nghĩa Bean
+
+	+ class: là thuộc tính bắt buộc và chỉ định lớp đc sử dụng
+		 để tạo ra bean.
+	
+	+ name: là thuộc tính duy nhất nhận dạng bean. Siêu dữ liệu
+		cấu hình trên XML, sử dụng thuộc tính id và/hoặc name
+		chỉ định bean duy nhất.
+
+	+ scope: xác định phạm vi của đối tượng đc tạo ra từ bean cụ thể
+
+	+ constructor- arg: dùng để thêm các phụ thuộc (dependency).
+	+ properties: dùng để thêm các phụ thuộc (dependency).
+	+ autowiring: dùng để thêm các phụ thuộc (dependency).
+
+	+ lazy-initialization: để IoC container biết đối tượng này đc tạo
+			       tại thời điểm đc request, ko phải lúc khởi động
+			 #eg:  
+			<!-- Một định nghĩa bean với chế độ lazy-init -->
+   		<bean id = "..." class = "..." lazy-init = "true">
+        		<!-- Cấu hình bean tại đây -->
+  		</bean>
+			
+	+ initialization: 1 callbacl đc gọi ngay sau khi tất cả các thuộc tính 
+			  cần thiết của bean đc thiết lập bởi container
+			#eg:
+			<!-- Một định nghĩa bean với phương thức khởi tạo -->
+   		<bean id = "..." class = "..." init-method = "...">
+        		<!-- Cấu hình bean tại đây -->
+   		</bean>
+
+	+ destruction: 1 callback đc sd khi container chứa bean bị hủy
+			#eg:
+			<!-- Một định nghĩa bean với phương thức hủy -->
+  		 <bean id = "..." class = "..." destroy-method = "...">
+        		<!-- Cấu hình bean tại đây -->
+  		 </bean>
+
+
+-- Cung cấp siêu dữ liệu cấu hình cho Spring IoC Container
+	- Có 3 pp quan trọng cung cấp siêu cấu hình cho Spring IoC Container
+		+ Tệp tin cấu hình dựa trên XML
+		+ Cấu hình dựa trên Annotation
+		+ Cấu hình dựa trên Java

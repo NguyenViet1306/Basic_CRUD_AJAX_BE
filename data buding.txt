@@ -1,0 +1,9 @@
+
+
+
+
+để upload mọi kiểu dữ liệu ngoài text dùng thêm thẻ entytype = "multipar/form-data"
+
+
+cách gọi file ảnh phải thông qua AppInitializer
+

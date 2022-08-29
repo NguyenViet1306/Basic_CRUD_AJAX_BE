@@ -1,0 +1,8 @@
+-- JPA :
+	+ Là 1 tiêu chuẩn đặc biệt, mô tả các hệ thống quản lý dữ liệu của các thao tác trong ứng dụng java
+	+ Bao gồm:
+		+  API bộ, định nghĩa trong gói "javax.persistence" 
+		+  Java Persitence Query Language ( ngôn ngữ truy vấn Java Persistence
+		+  Siêu dữ liệu đối tượng/quan hệ
+
+- Hibernate : dùng để triển khai JPA

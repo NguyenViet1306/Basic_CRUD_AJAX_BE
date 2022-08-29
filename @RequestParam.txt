@@ -1,0 +1,61 @@
+- Có thể sử dụng @RequestParam để trích xuất các tham số truy vấn,
+tham số biểu mẫu và thậm chí cả tệp từ yêu cầu.
+
+
+
+
+- Chúng ta có thể sử dụng @RequestParam với tên tham số ko có trong bytecode
+bằng cách tạo tên ảo cho tham số cần truy vấn
+
+eg: @ResponseBody
+public String addFoo(@RequestParam(name = "id") String fooId, @RequestParam String name) { 
+    return "ID: " + fooId + " Name: " + name;
+}
+
+* có thể thực hiện  @RequestParam (value = “id”) hoặc chỉ @RequestParam (“id”).
+
+
+
+
+- Các tham số phương thức được chú thích bằng  @RequestParam  là bắt buộc theo mặc định.
+Điều này có nghĩa là nếu tham số không có trong yêu cầu, chúng tôi sẽ gặp lỗi:
+Chúng ta có thể sử dụng cấu hình @RequestParam vs các thuộc tính bắt buộc thành tùy chọn
+eg: @ResponseBody
+public String getFoos(@RequestParam(required = false) String id) { 
+    return "ID: " + id;
+}
+
+nếu id có giá trị thì sẽ trả về đường dẫn của id, còn trong trường hợp id ko có 
+nó sẽ trả về null thay vì lỗi 400
+
+
+
+
+-  Chúng ta có thể đặt giá trị mặc định cho tham số, nó cũng gần tương tự như 
+@RequestParam(required = false) khi đó sẽ ko cần cung cấp tham số. các tham số được gán giá trị
+mặc định sẽ luôn trả về giá trị mặc định đã đc đặt
+
+eg: @ResponseBody
+public String getFoos(@RequestParam(defaultValue = "test") String id) {
+    return "ID: " + id;
+}
+
+khi này giá trị trả về của ID là test thay vì acb
+
+
+
+
+- chúng ta có thể có nhiều tham số mà ko cần đặt tên, khi đó có thể sừ dụng Map
+
+eg: @ResponseBody
+public String updateFoos(@RequestParam Map<String,String> allParams) {
+    return "Parameters are " + allParams.entrySet();
+}
+
+lúc này sẽ trả về tất các các tham số dưới dạng chuỗi
+
+
+
+
+
+-  
